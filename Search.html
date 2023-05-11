@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="myStyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('src.png');
+   background-size: 30px 30px;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; 
+  background-color: #C70039;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><img src="logo.avif" height="80px" width="70px" > </li>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="Appetizers.html">Appetizers</a></li>
+  <li><a href="Main Courses.html">Main Courses</a></li>
+  <li><a href="Beverages.html">Beverages</a></li>
+  <li><a href="Desserts.html">Desserts</a></li>
+  <li><a class="active"  href="Search.html">Search</a></li>
+  <li><a href="Help.html">Help</a></li>
+</ul>
+
+<h2>Items</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Items.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="Desserts.html">Cookies</a></li>
+  <li><a href="Appetizers.html">Chicken Wings</a></li>
+  <li><a href="Main Courses.html">Cheeseburger</a></li>
+  <li><a href="Beverages.html">Mojitos</a></li>
+  
+  <li><a href="Desserts.html">Waffles</a></li>
+  <li><a href="Appetizers.html">Special Fries</a></li>
+  <li><a href="Main Courses.html">Special burger</a></li>
+  <li><a href="Beverages.html">Soft Drinks</a></li>
+  
+  <li><a href="Desserts.html">Lava Cake</a></li>
+  <li><a href="Appetizers.html">Chicken Wings</a></li>
+  <li><a href="Main Courses.html">Veggie burger</a></li>
+  <li><a href="Beverages.html">Water</a></li>
+
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
